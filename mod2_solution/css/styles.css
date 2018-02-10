@@ -21,15 +21,21 @@ h1.mobileTitle {
 	font-family: 'Courier New', sans-serif;
 }
 
-p.section {
+div.section {
   border: 1px solid black;
   background-color: #e0e0e0;
   margin: 10px;
-  padding: 40px 10px 5px 10px;
+  padding: 25px 0px 0px 0px;
   font-family: Helvetica;
   color: black;
-  height: 100px;
+  height: 113px;
   overflow: hidden;
+}
+
+p.section {
+	height: 97px;
+	padding: 0px 10px;
+	margin-right: 1px;
 }
 
 p.section:hover {
@@ -211,12 +217,16 @@ p.p3t {
 		display: none;
 	}
 
+	div.section {
+		padding-top: 45px;
+	}
+
 	p.regularSectionTitle {
 		display: none;
 	}
 
 	p.section {
-		padding-top: 60px;
+		padding-top: 0px;
 	}
 
 	.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
