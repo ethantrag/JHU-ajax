@@ -34,6 +34,8 @@ WARNING!!! WARNING!!!
 // See Lecture 52, part 2
 // (Note, Step 2 will be done in the SpeakHello.js file.)
 (function () {
+  console.log('-----Original Work-----');
+
   var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
   // STEP 10:
@@ -61,5 +63,41 @@ WARNING!!! WARNING!!!
     } else {
       helloSpeaker.speak(names[i]);
     }
+  }
+
+
+  console.log('-----Extra Map work-----');
+
+  function mapNames(name) {
+    var firstLetter = name.charAt(0).toLowerCase();
+    if ('j' === firstLetter) {
+      return byeSpeaker.speakSimple(name);
+    } else {
+      return helloSpeaker.speakSimple(name);
+    }
+  }
+  var mappedNames = names.map(x => mapNames(x));
+  for (i = 0; i < mappedNames.length; i++) {
+    console.log(mappedNames[i]);
+  }
+
+
+  console.log('----- Extra Reduce work -----');
+
+  var reducedNames = names.reduce(function (obj, name) {
+    var firstLetter = name.charAt(0).toLowerCase();
+    if ('j' === firstLetter) {
+      obj.bye.push(byeSpeaker.speakSimple(name));
+    } else {
+      obj.hello.push(helloSpeaker.speakSimple(name));
+    }
+    return obj;
+  }, {hello: [], bye: []});
+  
+  for (a = 0; a < reducedNames.hello.length; a++) {
+    console.log(reducedNames.hello[a]);
+  }
+  for (b = 0; b < reducedNames.bye.length; b++) {
+    console.log(reducedNames.bye[b]);
   }
 })();
