@@ -14,6 +14,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
+var aboutHtml = "snippets/about.html";
 var allCategoriesUrl =
   "https://davids-restaurant.herokuapp.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
@@ -336,6 +337,55 @@ function insertItemPortionName(html,
   return html;
 }
 
+dc.getRandomNumberStars = function () {
+  $ajaxUtils.sendGetRequest(aboutHtml, function (aboutHtml) {
+    insertHtml("#main-content", aboutHtml);
+
+    var stars = Math.floor((Math.random() * 5) + 1);
+    var spans = document.querySelectorAll("#stars > span");
+
+    if (stars == 1) {
+      spans[0].className = 'fa fa-star';
+      spans[1].className = 'fa fa-star-o';
+      spans[2].className = 'fa fa-star-o';
+      spans[3].className = 'fa fa-star-o';
+      spans[4].className = 'fa fa-star-o';
+      spans[5].innerHTML = '1-star rating';
+    }
+    else if (stars == 2) {
+      spans[0].className = 'fa fa-star';
+      spans[1].className = 'fa fa-star';
+      spans[2].className = 'fa fa-star-o';
+      spans[3].className = 'fa fa-star-o';
+      spans[4].className = 'fa fa-star-o';
+      spans[5].innerHTML = '2-star rating';
+    }
+    else if (stars == 3) {
+      spans[0].className = 'fa fa-star';
+      spans[1].className = 'fa fa-star';
+      spans[2].className = 'fa fa-star';
+      spans[3].className = 'fa fa-star-o';
+      spans[4].className = 'fa fa-star-o';
+      spans[5].innerHTML = '3-star rating';
+    }
+    else if (stars == 4) {
+      spans[0].className = 'fa fa-star';
+      spans[1].className = 'fa fa-star';
+      spans[2].className = 'fa fa-star';
+      spans[3].className = 'fa fa-star';
+      spans[4].className = 'fa fa-star-o';
+      spans[5].innerHTML = '4-star rating';
+    }
+    else if (stars == 5) {
+      spans[0].className = 'fa fa-star';
+      spans[1].className = 'fa fa-star';
+      spans[2].className = 'fa fa-star';
+      spans[3].className = 'fa fa-star';
+      spans[4].className = 'fa fa-star';
+      spans[5].innerHTML = '5-star rating';
+    }
+  }, false);
+}
 
 global.$dc = dc;
 
