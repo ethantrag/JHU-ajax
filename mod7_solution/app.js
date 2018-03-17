@@ -4,7 +4,8 @@
   angular.module('ShoppingListCheckOff', [])
     .controller('ToBuyController', ToBuyController)
     .controller('AlreadyBoughtController', AlreadyBoughtController)
-    .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+    .service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+    .filter('price', PriceFilter);
 
   ToBuyController.$inject = ['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService) {
@@ -28,11 +29,11 @@
     var service = this;
 
     var toBuyList = [
-      {name:"cookies", quantity: 10},
-      {name:"chips", quantity: 4},
-      {name:"soda", quantity: 7},
-      {name:"bread", quantity: 2},
-      {name:"lunch meat", quantity: 14}
+      {name:"cookies", quantity: 10, pricePerItem: 2},
+      {name:"chips", quantity: 4, pricePerItem: 1},
+      {name:"soda", quantity: 7, pricePerItem: 1.5},
+      {name:"bread", quantity: 2, pricePerItem: 4.25},
+      {name:"lunch meat", quantity: 14, pricePerItem: 1.59}
     ];
     var boughtList = [];
 
@@ -49,6 +50,27 @@
     service.getBoughtItems = function () {
       return boughtList;
     };
-}
+  }
+
+  function PriceFilter() {
+    return function (input) {
+      input = input || 0;
+      var filt = "$$$";
+      var inputs = input.toString().split('.');
+      if (inputs.length === 1) {
+        filt += inputs[0] + ".00";
+      } else if (inputs[1].length > 2) {
+        filt += inputs[0] + "." + inputs[1].splice(0, 2);
+      } else if (inputs[1].length === 2) {
+        filt += inputs[0] + "." + inputs[1];
+      } else if (inputs[1].length === 1) {
+        filt += inputs[0] + "." + inputs[1] + "0";
+      } else {
+        filt += inputs[0] + ".00";
+      }
+
+      return filt;
+    }
+  }
 
 })();
