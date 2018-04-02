@@ -1,0 +1,15 @@
+<table ng-show="narrowDown.found.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Short Name</th>
+    <th>Description</th>
+    <th>Remove</th>
+  </tr>
+  <tr ng-repeat="item in narrowDown.found">
+    <td>{{item.name}}</td>
+    <td>{{item.short_name}}</td>
+    <td>{{item.description}}</td>
+    <td><button class="btn" ng-click="narrowDown.onRemove({index: $index});">Don't want this one!</button></td>
+  </tr>
+</table>
+<h3 ng-show="narrowDown.found.length === 0">Nothing found</h3>
