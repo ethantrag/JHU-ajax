@@ -8,12 +8,6 @@ body {
   display: none;
 }
 
-.loading-icon {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-}
-
 li[ui-sref]:hover {
   font-weight: bold;
   cursor: pointer;

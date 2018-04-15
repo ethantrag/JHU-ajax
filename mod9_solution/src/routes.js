@@ -29,11 +29,14 @@ angular.module('MenuApp')
       }
     })
 
-    .state('categories.menuItem', {
-      templateUrl: 'src/mod9/templates/item-detail.template.html',
-      controller: 'MenuItemController as menuItem',
-      params: {
-        itemId: null
+    .state('menuItem', {
+      url: '/categories/menuItems/:shortName',
+      templateUrl: 'src/mod9/templates/main.menuItems.template.html',
+      controller: 'MenuItemsController as menuItems',
+      resolve: {
+        items: function (MenuDataService, $stateParams) {
+          return MenuDataService.getItemsForCategory($stateParams.shortName);
+        }
       }
     });
 
