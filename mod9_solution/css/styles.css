@@ -1,0 +1,20 @@
+body {
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.loading-icon {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+}
+
+li[ui-sref]:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
