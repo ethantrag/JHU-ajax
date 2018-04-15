@@ -8,7 +8,6 @@ angular.module('MenuApp')
   function MenuItemsController($stateParams, items) {
     var menuItems = this;
     menuItems.items = items;
-    console.log($stateParams);
   }
 
 })();
