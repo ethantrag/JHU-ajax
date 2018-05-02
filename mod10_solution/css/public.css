@@ -1,3 +1,38 @@
+/* MINE */
+.signUp div label, .myInfo div label {
+  width: 100px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.myInfo div label.val {
+  width: 200px;
+  text-align: left;
+}
+
+.signUp div input {
+  width: 200px;
+  color: black;
+}
+
+.submit {
+  color: black;
+  margin-top:10px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
+
 /* HOME PAGE */
 .container .jumbotron {
   box-shadow: 0 0 50px #3F0C1F;

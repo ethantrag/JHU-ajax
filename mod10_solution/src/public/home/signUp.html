@@ -1,0 +1,34 @@
+<div class="container signUp">
+
+  <h2 class="text-center">Sign Up</h2>
+
+  <form name='regForm' novalidate>
+    <div class="text-center">
+       <label>First Name:</label>
+       <input type="text" name="firstName" ng-model="signUpCtrl.reg.firstName" minlength="1" required></input>
+    </div>
+    <div class="text-center">
+      <label>Last Name:</label>
+      <input type="text" name="lastName" ng-model="signUpCtrl.reg.lastName" minlength="1" required></input>
+    </div>
+    <div class="text-center">
+      <label>e-mail:</label>
+      <input type="email" name="email" ng-model="signUpCtrl.reg.email" required></input>
+    </div>
+    <div class="text-center">
+      <label>Favorite:</label>
+      <input type="text" name="favorite" ng-model="signUpCtrl.reg.favorite" minlength="2" required></input>
+    </div>
+    <div ng-show="signUpCtrl.invalidFavorite" class="text-center">
+      <label class="error" style="width:360px;">No such menu number exists</label>
+    </div>
+    <div class="text-center">
+      <button class="submit" ng-disabled="regForm.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+    </div>
+  </form>
+
+  <div class="text-center">
+    <label style="width:100%; text-align: center;" ng-show="signUpCtrl.saved">Your information has been saved</label>
+  </div>
+
+</div>
