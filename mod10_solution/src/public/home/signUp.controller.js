@@ -21,10 +21,20 @@
       ctrl.saved = true;
     }
 
-    ctrl.submit = function () {
+    ctrl.checkMenuItem = function() {
       var promise = UserService.getMenuItems(ctrl.reg.favorite);
       promise.then(function (response) {
-        console.log(response);
+        ctrl.invalidFavorite = false;
+      })
+      .catch(function (error) {
+        ctrl.invalidFavorite = true;
+      })
+    }
+
+    ctrl.submit = function() {
+      var promise = UserService.getMenuItems(ctrl.reg.favorite);
+      promise.then(function (response) {
+        ctrl.reg.menuItem = response;
         UserService.signUp(ctrl.reg);
         ctrl.saved = true;
         ctrl.invalidFavorite = false;

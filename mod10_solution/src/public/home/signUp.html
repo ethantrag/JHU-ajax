@@ -17,7 +17,8 @@
     </div>
     <div class="text-center">
       <label>Favorite:</label>
-      <input type="text" name="favorite" ng-model="signUpCtrl.reg.favorite" minlength="2" required></input>
+      <input type="text" name="favorite" ng-model="signUpCtrl.reg.favorite"
+        ng-blur="signUpCtrl.checkMenuItem()" ng-class="{'ng-invalid': signUpCtrl.invalidFavorite}"></input>
     </div>
     <div ng-show="signUpCtrl.invalidFavorite" class="text-center">
       <label class="error" style="width:360px;">No such menu number exists</label>
